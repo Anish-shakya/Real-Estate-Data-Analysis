@@ -49,7 +49,7 @@ WHERE Town= '***Unknown***'
 SELECT * FROM real_state
 
 CREATE VIEW RealState AS
-SELECT Serial_Number,year,month,Town,Address,Assessed_Value,Sales,Property_Type,Residential_Type
+SELECT Serial_Number,year,month,Town,Address,Assessed_Value,Sales,Property_Type,Residential_Type,Sales_ratio
 FROM real_state
 GO
 
