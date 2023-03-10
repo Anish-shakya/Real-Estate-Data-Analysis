@@ -104,3 +104,27 @@ ORDER BY total_residental_count DESC
  WHERE Property_Type <> 'Not Defined'
  GROUP BY year
  ORDER BY year DESC
+
+
+ ---sales group by month and year of 2021
+
+SELECT year,month ,sum(sales) AS total_sales
+FROM RealState
+GROUP BY year,month
+ORDER BY year desc,month asc
+
+
+----max,min and avg sales of each property type 
+SELECT year,Property_Type,MAX(SALES) AS Maximum_sales,MIN(Sales) AS Minimum_sales, ROUND(AVG(sales),2) AS Average_sales
+FROM RealState
+WHERE Property_Type <> 'Not Defined'
+GROUP BY year,Property_Type
+order by year,Maximum_sales desc
+
+
+----max,min and avg sales of each residential type 
+SELECT Residential_Type,MAX(SALES) AS Maximum_sales,MIN(Sales) AS Minimum_sales, ROUND(AVG(sales),2) AS Average_sales
+FROM RealState
+WHERE Residential_Type <> 'Not Defined'
+GROUP BY Residential_Type
+
