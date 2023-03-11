@@ -128,3 +128,6 @@ FROM RealState
 WHERE Residential_Type <> 'Not Defined'
 GROUP BY Residential_Type
 
+
+---------------------------------------------------------------------------
+
