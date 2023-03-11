@@ -128,6 +128,32 @@ FROM RealState
 WHERE Residential_Type <> 'Not Defined'
 GROUP BY Residential_Type
 
+----- checking distinct year
+select distinct(year)
+from RealState
+order by year
+
+--checking total yearly sales --
+select year,sum(Sales) As Yearly_Sales
+from RealState
+group by year
+order by year
+
+--- checking over all sales
+select sum(Sales) As Overall_Sales
+from RealState
+
+
+--checking total sales of 11 years from 1999 to 2010 
+select sum(Sales) As Yearly_Sales
+from RealState
+where year in ('1999','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010')
+
+
+--checking total sales of 11 years from 2010 to 2021
+select sum(Sales) As Yearly_Sales
+from RealState
+where year in ('2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021')
 
 ---------------------------------------------------------------------------
 
