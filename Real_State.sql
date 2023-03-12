@@ -119,7 +119,7 @@ SELECT year,Property_Type,MAX(SALES) AS Maximum_sales,MIN(Sales) AS Minimum_sale
 FROM RealState
 WHERE Property_Type <> 'Not Defined'
 GROUP BY year,Property_Type
-order by year,Maximum_sales desc
+ORDER BY year,Maximum_sales desc
 
 
 ----max,min and avg sales of each residential type 
@@ -134,44 +134,44 @@ from RealState
 order by year
 
 --checking total yearly sales --
-select year,sum(Sales) As Yearly_Sales
-from RealState
-group by year
-order by year
+SELECT year,sum(Sales) As Yearly_Sales
+FROM RealState
+GROUP BY year
+ORDER BY year
 
 --- checking over all sales
-select sum(Sales) As Overall_Sales
-from RealState
+SELECT SUM(Sales) AS Overall_Sales
+FROM RealState
 
 
 --checking total sales of 11 years from 1999 to 2010 
-select sum(Sales) As Yearly_Sales
-from RealState
+SELECT SUM(Sales) AS Yearly_Sales
+FROM RealState
 where year in ('1999','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010')
 
 
 --checking total sales of 11 years from 2010 to 2021
-select sum(Sales) As Yearly_Sales
-from RealState
-where year in ('2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021')
+SELECT SUM(Sales) AS Yearly_Sales
+FROM RealState
+WHERE year IN ('2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021')
 
 --checking growth percentage between 2020 to 2021
 --total sales for 2020
-select sum(Sales) As Yearly_Sales
-from RealState
-where year = '2020'
+SELECT SUM(Sales) AS Yearly_Sales
+FROM RealState
+WHERE year = '2020'
 
 --total sales for 2021
-select sum(Sales) As Yearly_Sales
+SELECT SUM(Sales) As Yearly_Sales
 from RealState
-where year = '2021'
+WHERE year = '2021'
 
 --calculating percentage growth in sales from 2020 to 2021
-select 
-sum(case when year = '2020' then Sales else 0 end) AS sales_2020,
-sum(case when year ='2021' then Sales else 0 end) As sales_2021,
-round(((sum(case when year ='2021' then Sales else 0 end) - sum(case when year ='2020' then Sales else 0 end))/sum(case when year ='2020' then Sales else 0 end)) * 100,1) As Percentage_Growth	
-from RealState
-where year in ('2020','2021')
+SELECT 
+SUM(CASE WHEN year = '2020' THEN Sales ELSE 0 END) AS sales_2020,
+SUM(CASE WHEN year ='2021' THEN Sales ELSE 0 END) AS sales_2021,
+ROUND(((SUM(CASE WHEN year ='2021' THEN Sales ELSE 0 END) - SUM(CASE WHEN year ='2020' THEN Sales ELSE 0 END))/SUM(CASE WHEN year ='2020' THEN Sales ELSE 0 END)) * 100,1) AS Percentage_Growth	
+FROM RealState
+WHERE year IN ('2020','2021')
 ---------------------------------------------------------------------------
 
