@@ -166,5 +166,12 @@ select sum(Sales) As Yearly_Sales
 from RealState
 where year = '2021'
 
+--calculating percentage growth in sales from 2020 to 2021
+select 
+sum(case when year = '2020' then Sales else 0 end) AS sales_2020,
+sum(case when year ='2021' then Sales else 0 end) As sales_2021,
+round(((sum(case when year ='2021' then Sales else 0 end) - sum(case when year ='2020' then Sales else 0 end))/sum(case when year ='2020' then Sales else 0 end)) * 100,1) As Percentage_Growth	
+from RealState
+where year in ('2020','2021')
 ---------------------------------------------------------------------------
 
