@@ -155,5 +155,16 @@ select sum(Sales) As Yearly_Sales
 from RealState
 where year in ('2011','2012','2013','2014','2015','2016','2017','2018','2019','2020','2021')
 
+--checking growth percentage between 2020 to 2021
+--total sales for 2020
+select sum(Sales) As Yearly_Sales
+from RealState
+where year = '2020'
+
+--total sales for 2021
+select sum(Sales) As Yearly_Sales
+from RealState
+where year = '2021'
+
 ---------------------------------------------------------------------------
 
